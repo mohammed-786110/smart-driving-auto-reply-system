@@ -10,14 +10,14 @@ def handle_incoming_message(user, sender):
 
     state, _ = UserState.objects.get_or_create(user=user)
 
-    # 🔹 If not driving → no reply
+    # If not driving >> no reply
     if not state.is_driving:
         return {
             "reply_sent": False,
             "reason": "User not driving"
         }
 
-    # 🔹 Find contact
+    #  Find contact
     contact = Contact.objects.filter(
         user=user,
         name=sender,
@@ -34,11 +34,13 @@ def handle_incoming_message(user, sender):
             "message": reply
         }
 
-    # 🔹 Unknown number
+    #  Unknown number
     return {
         "reply_sent": False,
         "message": "Will respond later."
     }
+
+
 # ONLY MESSAGE TO CUSTOMIZED IMPORTANT CONTACTS WILL BE REPLIED AUTOMATICALLY.
 # THIS CAN BE CUSTOMIZED IN SETTINGS. CONTACTS CAN BE ADDED IN CONTACTS SECTION IN SETTINGS.
 # RELATION CAN BE SET TO FAMILY, FRIEND, BOSS, EMERGENCY OR OTHERS. REPLY WILL BE GENERATED ACCORDING TO RELATION.

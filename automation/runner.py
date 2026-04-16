@@ -37,31 +37,31 @@ while True:
             sender = bot.get_contact_name()
 
             if sender:
-                print(f"📩 Message from: {sender}")
+                print(f"Message from: {sender}")
 
-                # 🔥 Get latest message dynamically (IMPORTANT FIX)
+                # geeting the last message to check if it's new or not
                 current_message = bot.get_last_message()
 
-                # 🔹 Check if new message
+                #Check if new message
                 if sender not in last_messages or last_messages[sender] != current_message:
 
-                    # 🔹 Check cooldown (30 sec)
+                    #  Check cooldown (30 sec)
                     if sender not in replied or time.time() - replied[sender] > 30:
 
                         result = handle_incoming_message(user, sender)
                         print("DEBUG:", result)
                         if result.get("reply_sent"):
                             bot.send_reply(result["message"])
-                            print(f"✅ Replied to {sender}")
+                            print(f"Replied to {sender}")
 
                             replied[sender] = time.time()
                             last_messages[sender] = current_message
 
                     else:
-                        print("⏭️ Waiting due to timer")
+                        print(">>> Waiting due to timer")
 
                 else:
-                    print("⏭️ Same message, skipping")
+                    print(">>> Same message, skipping")
 
         time.sleep(3)
 
