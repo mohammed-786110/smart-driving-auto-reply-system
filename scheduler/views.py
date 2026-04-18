@@ -2,6 +2,7 @@
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from .models import Contact
+from .serializers import ContactSerializer
 
 @api_view(['POST'])
 def add_contact(request):
@@ -49,3 +50,11 @@ def toggle_driving(request):
         "is_driving": state.is_driving,
         "message": "Driving mode updated"
     })
+
+@api_view(['GET'])
+def contact_list(request):
+    contacts=Contact.objects.all()
+    serializer=ContactSerializer(contacts,many=True)
+    return Response(serializer.data)
+    
+   
