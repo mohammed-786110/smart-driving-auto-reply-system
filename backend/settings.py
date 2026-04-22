@@ -56,7 +56,11 @@ MIDDLEWARE = [
 ROOT_URLCONF = 'backend.urls'
 CORS_ALLOW_ALL_ORIGINS = True
 
-
+ALLOWED_HOSTS = [
+    "smart-driving-auto-reply-system.onrender.com",
+    "localhost",
+    "127.0.0.1"
+]
 
 TEMPLATES = [
     {

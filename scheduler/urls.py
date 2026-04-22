@@ -1,5 +1,6 @@
 from django.urls import path
-from .views import add_contact, toggle_driving, contact_list
+from .views import add_contact, toggle_driving
+from .views import contact_list
 
 urlpatterns = [
     path('add-contact/', add_contact, name='add_contact'),
