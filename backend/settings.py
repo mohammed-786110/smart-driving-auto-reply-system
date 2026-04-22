@@ -94,6 +94,19 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'scheduler_db',
+#         'USER': 'root',
+#         'PASSWORD': 'Admin@0786',
+#         'HOST':'localhost',
+#         'PORT':'3306',
+#     }
+# }
+
+
 # local database not working properly. so using remote database for development and testing. this is not recommended for production.
 # using sqlite for development and testing. for production, use postgresql or mysql. sqlite is not recommended for production.
 
@@ -138,3 +151,6 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+
