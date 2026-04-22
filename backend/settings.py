@@ -94,6 +94,8 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+# local database not working properly. so using remote database for development and testing. this is not recommended for production.
+# using sqlite for development and testing. for production, use postgresql or mysql. sqlite is not recommended for production.
 
 
 # Password validation
