@@ -55,6 +55,11 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'backend.urls'
 CORS_ALLOW_ALL_ORIGINS = True
+REST_FRAMEWORK = {
+    'DEFAULT_RENDERER_CLASSES': [
+        'rest_framework.renderers.JSONRenderer',
+    ]
+}
 
 ALLOWED_HOSTS = [
     "smart-driving-auto-reply-system.onrender.com",
@@ -85,12 +90,8 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'scheduler_db',
-        'USER': 'root',
-        'PASSWORD': 'Admin@0786',
-        'HOST':'localhost',
-        'PORT':'3306',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
