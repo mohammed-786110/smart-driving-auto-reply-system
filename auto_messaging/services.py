@@ -38,6 +38,7 @@ def generate_reply(relation, sender):
         Context: User is driving.
         Sender: {sender}
         Relation: {relation}
+        generate message according to relation
         Rules:
         - Keep it short
         - No emojis
